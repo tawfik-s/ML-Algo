@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-data = pd.read_csv('D:\diabetics.csv')
+data = pd.read_csv('./diabetics.csv')
 
 
 X = data.drop('outcome', axis=1)
@@ -16,7 +16,7 @@ rf = RandomForestClassifier(n_estimators=10)
 
 
 k = 5
-kfold = KFold(n_splits=k, random_state=None, shuffle=False)
+kfold = KFold(n_splits=k , random_state=None, shuffle=True)
 
 acclist = []
 
@@ -33,7 +33,9 @@ for train_index, test_index in kfold.split(X):
     from sklearn.metrics import accuracy_score
 
     acc = accuracy_score(y_test, predictions)
+    print("accuracy score ", acc)
     acclist.append(acc)
+
 
 acc = sum(acclist) / k
 

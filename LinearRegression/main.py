@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 
 diabetes_x, diabetes_y = datasets.load_diabetes(return_X_y=True)
 
-diabetes_x = diabetes_x[:, np.newaxis, 2]
+diabetes_x = diabetes_x[:, np.newaxis, 2]  # he take the second line
 
 # split the data into training and testing groups
 
